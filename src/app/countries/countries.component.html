@@ -1,3 +1,11 @@
-<p>
-  contries works!
-</p>
+<div class="countries">
+  <a *ngFor="let country of countries$ | async" class="country card"
+    routerLink="/country"
+  >
+    <img src="{{country.flag}}">
+    <h3>{{country.name}}</h3>
+    <div class="dets">
+      
+    </div>
+  </a>
+</div>
