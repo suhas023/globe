@@ -1,0 +1,37 @@
+.continents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  border: 3px solid #222222;
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  transition: box-shadow linear 300ms;
+}
+
+.card:hover {
+  -webkit-box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
+  -moz-box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
+  box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
+}
+
+.card:focus {
+  border-color: steelblue;
+}
+
+.card h2 {
+  text-align: center;
+  color: #222222;
+}
+
+.card img {
+  width: 200px;
+}
