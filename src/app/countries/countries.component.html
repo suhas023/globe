@@ -1,11 +1,33 @@
-<div class="countries">
-  <a *ngFor="let country of countries$ | async" class="country card"
-    routerLink="/country"
-  >
-    <img src="{{country.flag}}">
-    <h3>{{country.name}}</h3>
-    <div class="dets">
-      
+<div class="countries" *ngIf="!loading">
+  <div *ngFor="let country of countries" class="country card">
+    <img src="{{country.flag}}" alt="{{country.name}} flag image">
+    <h3><a routerLink="/country">{{country.name}}</a></h3>
+    <div class="detail">
+      <span class="key">Capital:</span>
+      <span class="value">{{country.capital ? country.capital : 'N/A'}}</span>
     </div>
-  </a>
+    <div class="detail">
+      <span class="key">Region:</span>
+      <span class="value">{{country.region}}</span>
+    </div>
+    <div class="detail">
+      <span class="key">Langulages:</span>
+      <span class="value">
+        <a class="link" *ngFor="let lang of country.languages; let last=last;" routerLink="/countries" [queryParams]="{category: 'lang', value: lang.iso639_1}">
+          {{lang.name}}{{(last) ? '' : ','}}
+        </a>
+      </span>
+    </div>
+    <div class="detail">
+      <span class="key">Currencies:</span>
+      <span class="value">
+        <a class="link" *ngFor="let cur of country.currencies; let last=last;" routerLink="/countries" [queryParams]="{category: 'currency', value: cur.code}">
+          {{cur.name}}{{(last) ? '' : ','}}
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+<div *ngIf="error">
+  <h1>HHHHHHH</h1>
 </div>

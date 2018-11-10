@@ -1,7 +1,67 @@
 .countries {
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
+
+.card {
+  margin: 10px;
+  padding: 5px;
+  max-width: 220px;
+  border: 3px solid #222222;
+  border-radius: 20px;
+  color: #222222;
+  -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  transition: box-shadow linear 300ms;
+}
+
+.card:hover {
+  -webkit-box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
+  -moz-box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
+  box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
+}
+
+.card:focus {
+  border-color: steelblue;
+}
+
+.card h3 {
+  text-align: center;
+}
+
+.card h3 a{
+  margin: 10px 0px;
+  color: steelblue;
+}
+
+.card h3 a:hover, .card h3 a:focus {
+ color: rgb(66, 93, 116);
+}
+
+.card img {
+  width: 200px;
+  border-radius: 15px;
+  border: 1px solid #222222;
+  display: block;
+  margin: 0 auto;
+}
+
+.detail{
+  display: flex;
+  font-size: 14px;
+}
+
+.detail .key{
+  flex: 0 0 90px;
+  font-weight: 700;
+}
+
+.detail .value .link {
+  color: rgb(3, 80, 143);
+  text-decoration: none;
+} 

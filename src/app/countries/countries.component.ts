@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map, flatMap, filter, catchError } from 'rxjs/operators';
+import {Observable, Subscription, of } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
 
 import { GlobeService } from '../globe.service';
 import {Filter} from '../interfaces/filter.interface';
@@ -11,24 +12,43 @@ import {Filter} from '../interfaces/filter.interface';
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.css']
 })
-export class ContriesComponent implements OnInit {
-  countries$: any;
-  filter$: Observable<Filter>;
-  constructor(private globeService: GlobeService, private route: ActivatedRoute) {
+export class ContriesComponent implements OnInit, OnDestroy {
+  countries$: Subscription;
+  countries: any;
+  error: boolean;
+  loading: boolean;
+  constructor(private globeService: GlobeService, 
+    private route: ActivatedRoute, 
+    private router: Router) {
   }
 
   ngOnInit() {
-
-    this.filter$ = this.route.queryParamMap
-      .pipe(map(params => ({
+    this.countries$ = this.route.queryParamMap.pipe(
+      map(params => ({
         category: params.get('category'),
         value: params.get('value')
-      })));
-    
-    this.filter$
-      .subscribe((filter:Filter) => {
-        this.countries$ = this.globeService.getCountries(filter);
-      });
-      
+      })),
+      flatMap(s => {
+        console.log(s);
+        this.loading = true;
+        return this.globeService.getCountries(s).pipe(
+          catchError((res, obs) => of([]))
+        );
+      })
+    ).subscribe(
+      countries => {
+        console.log('s');
+        this.countries = countries;
+        this.loading = false;
+      },
+      error =>{
+        this.error = true;
+      }
+    );
+    console.log('111111111');
+  }
+
+  ngOnDestroy() {
+    this.countries$.unsubscribe();
   }
 }
