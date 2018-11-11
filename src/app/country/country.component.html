@@ -1,4 +1,62 @@
-<div class="country" *ngIf="country">
-  <div class="banner" [ngStyle]="getBackground()">
+<div class="container" *ngIf="country" [ngStyle]="getBackground()">
+  <div class="cards-container">
+    <div class="card">
+      <h2>
+        {{country.name}}
+      </h2>
+      <img src="{{country.flag}}" alt="{{country.name}}'s flag'" class="flag">
+      <div class="detail">
+        <span class="key">
+          Capital:
+        </span>
+        <span class="value">
+          {{country.capital ? country.capital : 'N/A'}}
+        </span>
+      </div>
+      <div class="detail">
+        <span class="key">
+          Region:
+        </span>
+        <span class="value">
+          {{country.region ? country.region : 'N/A'}}
+        </span>
+      </div>
+      <div class="detail">
+        <span class="key">
+          Sub-Region:
+        </span>
+        <span class="value">
+          {{country.subregion ? country.subregion : 'N/A'}}
+        </span>
+      </div>
+      <div class="detail">
+        <span class="key">
+          Population:
+        </span>
+        <span class="value">
+          {{country.population ? (country.population | number: '2.') : 'N/A'}}
+        </span>
+      </div>
+    </div>
+    <div class="card" *ngIf="country.altSpellings.length">
+      <h3>
+        Alternate Spellings
+      </h3>
+      <div class="detail" *ngFor="let alt of country.altSpellings;">
+        <span class="center">
+          {{alt}}
+        </span>
+      </div>
+    </div>
+    <div class="card" *ngIf="country.languages.length">
+        <h3>
+          Languages
+        </h3>
+        <div class="detail" *ngFor="let lang of country.languages;">
+          <span class="center">
+            {{lang.name}}
+          </span>
+        </div>
+      </div>
   </div>
 </div>

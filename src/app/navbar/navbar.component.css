@@ -12,7 +12,7 @@ nav {
   -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
-  opacity: 0.95;
+  opacity: 0.93;
   transition: opacity linear 300ms;
 }
 nav:hover, nav:focus {
