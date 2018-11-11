@@ -1,5 +1,9 @@
+.container {
+  margin-top: 150px;
+}
 .countries {
   width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -7,10 +11,49 @@
   align-items: flex-start;
 }
 
+.filter-search {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.back-btn, input {
+  margin: 10px;
+  height: 40px;
+  font-size: 20px;
+  padding: 3px;
+  background-color: white;
+  border-radius: 5px;
+  border: 3px solid #222222;
+  -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
+  transition: box-shadow linear 300ms;
+
+}
+
+.back-btn {
+  width: 50px;
+  cursor: pointer;
+  background-image: url("../../assets/nav/back.svg");
+  background-repeat: no-repeat;
+  background-position: 70% 50%;
+}
+
+input {
+  width: 200px;
+  line-height: 40px;
+}
+
 .card {
   margin: 10px;
   padding: 5px;
   max-width: 220px;
+  background-color: white;
   border: 3px solid #222222;
   border-radius: 20px;
   color: #222222;
@@ -20,13 +63,13 @@
   transition: box-shadow linear 300ms;
 }
 
-.card:hover {
+.card:hover, input:hover, input:focus, .back-btn:hover, .back-btn:focus {
   -webkit-box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
   -moz-box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
   box-shadow: 2px 4px 15px -4px rgba(0,0,0,0.72);
 }
 
-.card:focus {
+input:focus, .back-btn:focus, .back-btn:hover {
   border-color: steelblue;
 }
 

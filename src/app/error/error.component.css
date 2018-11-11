@@ -1,0 +1,16 @@
+.error {
+  width: 100%;
+}
+
+.font-face {
+  text-align: center;
+  font-size: 200px;
+  font-weight: 400;
+  color: rgb(70, 68, 68);
+}
+
+.message {
+  text-align: center;
+  font-size: 80px;
+  color: rgb(70, 68, 68);
+}

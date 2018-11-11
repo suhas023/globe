@@ -1,33 +1,59 @@
-<div class="countries" *ngIf="!loading">
-  <div *ngFor="let country of countries" class="country card">
-    <img src="{{country.flag}}" alt="{{country.name}} flag image">
-    <h3><a routerLink="/country">{{country.name}}</a></h3>
-    <div class="detail">
-      <span class="key">Capital:</span>
-      <span class="value">{{country.capital ? country.capital : 'N/A'}}</span>
+<div class="container">
+  <ng-container *ngIf="!loading && !errorOccurred">
+    <div class="filter-search">
+      <button class="back-btn" (click)="location.back()"></button>
+      <input #filter type="text" placeholder="Filter Results" (keyup)="filterCountries(filter.value)">
     </div>
-    <div class="detail">
-      <span class="key">Region:</span>
-      <span class="value">{{country.region}}</span>
+    <div class="countries">
+      <ng-container *ngFor="let country of filteredCountries">
+        <div class="country card">
+          <img src="{{country.flag}}" alt="{{country.name}} flag image">
+          <h3>
+            <a routerLink="/country" [queryParams]="{category: 'alpha', value: country.alpha2Code}">
+              {{country.name}}
+            </a>
+          </h3>
+          <div class="detail">
+            <span class="key">Capital:</span>
+            <span class="value">{{country.capital ? country.capital : 'N/A'}}</span>
+          </div>
+          <div class="detail">
+            <span class="key">Region:</span>
+            <span class="value">{{country.region}}</span>
+          </div>
+          <div class="detail">
+            <span class="key">Langulages:</span>
+            <span class="value">
+              <a class="link" *ngFor="let lang of country.languages; let last=last;"  routerLink="/countries"
+                [queryParams]="{category: 'lang', value: lang.iso639_1}"
+                (click)="toastr.success(lang.name, 'Filter Applied');"
+              >
+                {{lang.name}}{{(last) ? '' : ','}}
+              </a>
+            </span>
+          </div>
+          <div class="detail">
+            <span class="key">Currencies:</span>
+            <span class="value">
+              <a class="link" *ngFor="let cur of country.currencies; let last=last;"    
+                routerLink="/countries"
+                [queryParams]="{category: 'currency', value: cur.code}"
+                (click)="toastr.success(cur.name, 'Filter');"
+              >
+                {{cur.name}}{{(last) ? '' : ','}}
+              </a>
+            </span>
+          </div>
+        </div>
+      </ng-container>
     </div>
-    <div class="detail">
-      <span class="key">Langulages:</span>
-      <span class="value">
-        <a class="link" *ngFor="let lang of country.languages; let last=last;" routerLink="/countries" [queryParams]="{category: 'lang', value: lang.iso639_1}">
-          {{lang.name}}{{(last) ? '' : ','}}
-        </a>
-      </span>
-    </div>
-    <div class="detail">
-      <span class="key">Currencies:</span>
-      <span class="value">
-        <a class="link" *ngFor="let cur of country.currencies; let last=last;" routerLink="/countries" [queryParams]="{category: 'currency', value: cur.code}">
-          {{cur.name}}{{(last) ? '' : ','}}
-        </a>
-      </span>
-    </div>
+    <app-error 
+      *ngIf="!filteredCountries.length" 
+      [errorOccurred]="errorOccurred" 
+      [errorMessage]="'No Matches Found!'">
+    </app-error>
+  </ng-container>
+  <div *ngIf="errorOccurred">
+    <app-error [errorOccurred]="errorOccurred" [errorMessage]="errorMessage"></app-error>
   </div>
-</div>
-<div *ngIf="error">
-  <h1>HHHHHHH</h1>
 </div>
