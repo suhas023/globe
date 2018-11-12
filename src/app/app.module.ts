@@ -11,6 +11,7 @@ import { ContriesComponent } from './countries/countries.component';
 import { CountryComponent } from './country/country.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorComponent } from './error/error.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ErrorComponent } from './error/error.component';
     ContriesComponent,
     CountryComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,

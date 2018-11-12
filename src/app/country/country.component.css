@@ -1,23 +1,38 @@
 .container {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   height: 100vh;
   width: 100%;
-  padding-top: 120px;
+  margin-top: -70px;
+  padding-top: 70px; 
+  z-index: -10;
   background-position: center;
+}
+
+.cards-container:before {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .cards-container {
   width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  filter: none;
 }
 
 .card {
   margin: 10px;
   padding: 5px;
-  max-width: 220px;
-  min-width: 170px;
+  min-width: 220px;
+  max-width: 240px;
   background-color: white;
   border: 3px solid #222222;
   border-radius: 20px;
@@ -26,6 +41,7 @@
   -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   transition: box-shadow linear 300ms;
+  cursor: default;
 }
 
 .card:hover, input:hover, input:focus, .back-btn:hover, .back-btn:focus {
@@ -64,6 +80,10 @@ input:focus, .back-btn:focus, .back-btn:hover {
 .detail .key{
   flex: 0 0 100px;
   font-weight: 700;
+}
+
+.detail .value {
+  padding-left: 4px;
 }
 
 .detail .value .link {

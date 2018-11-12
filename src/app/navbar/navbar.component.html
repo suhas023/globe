@@ -1,5 +1,16 @@
-<nav>
-  <div class="logo">
-    <a class="nav-link" routerLink="/">Globe_irl</a>
+<nav [style.background-color]="currentStyle.navColor">
+  <div class="logo-search">
+    <a class="logo" routerLink="/" *ngIf="currentState === 'nav'">Globe_irl</a>
+    <input class="search" 
+      *ngIf="currentState === 'search'" #input
+      placeholder="Input Country, Enter key to Search"
+      (keyup.enter)="onEnter(input.value)"
+      appAutofocus  
+    />
+  </div>
+  <div class="action-btn">
+    <button class="btn" (click)="toggleSearchState()">
+      <i class="material-icons md-48" [style.color]="currentStyle.btnColor">{{currentStyle.btnFunction}}</i>
+    </button>
   </div>
 </nav>

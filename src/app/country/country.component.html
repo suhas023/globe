@@ -37,6 +37,16 @@
           {{country.population ? (country.population | number: '2.') : 'N/A'}}
         </span>
       </div>
+      <div class="detail" *ngIf="country.timezones.length">
+        <span class="key">
+          Calling Code:
+        </span>
+        <span class="value">
+          <ng-container *ngFor="let code of country.callingCodes; let last=last;">
+            {{code}}{{last ? '' : ','}}
+          </ng-container>
+        </span>
+      </div>
     </div>
     <div class="card" *ngIf="country.altSpellings.length">
       <h3>
@@ -49,14 +59,84 @@
       </div>
     </div>
     <div class="card" *ngIf="country.languages.length">
-        <h3>
-          Languages
-        </h3>
-        <div class="detail" *ngFor="let lang of country.languages;">
-          <span class="center">
-            {{lang.name}}
-          </span>
-        </div>
+      <h3>
+        Languages
+      </h3>
+      <div class="detail" *ngFor="let lang of country.languages;">
+        <a class="center link" 
+          routerLink="/countries" 
+          [queryParams]="{category: 'lang', value: lang.iso639_1}" 
+          (click)="toastr.success(lang.name, 'Filter Applied');"
+        >
+          {{lang.name}}
+        </a>
       </div>
+    </div>
+    <div class="card">
+      <h3>
+        Geography
+      </h3>
+      <div class="detail">
+        <span class="key">
+          Latitude:
+        </span>
+        <span class="value">
+          {{country.latlng ? (country.latlng[0] | number : '1.2-2') : 'N/A'}}
+        </span>
+      </div>
+      <div class="detail">
+        <span class="key">
+          Longitude:
+        </span>
+        <span class="value">
+          {{country.latlng ? (country.latlng[1] | number : '1.2-2') : 'N/A'}}
+        </span>
+      </div>
+      <div class="detail">
+        <span class="key">
+          Area:
+        </span>
+        <span class="value">
+          {{country.area ? (country.area) : 'N/A'}}
+        </span>
+      </div>
+      <div class="detail" *ngIf="country.timezones.length">
+        <span class="key">
+          Timezone:
+        </span>
+        <span class="value">
+          <ng-container *ngFor="let tz of country.timezones; let last=last;">
+            {{tz}}{{last ? '' : ','}}
+          </ng-container>
+        </span>
+      </div>
+    </div>
+    <div class="card" *ngIf="country.borders.length">
+      <h3>
+        Borders
+      </h3>
+      <div class="detail" *ngFor="let border of country.borders;">
+        <span class="center">
+          {{border}}
+        </span>
+      </div>
+    </div>
+    <div class="card" *ngIf="country.currencies.length">
+      <h3>
+        Currencies
+      </h3>
+      <div class="detail" *ngFor="let currency of country.currencies;">
+        <a class="center"
+          routerLink="/countries"
+          [queryParams]="{category: 'currency', value: currency.code}"
+          (click)="toastr.success(currency.name, 'Filter');"
+        >
+          {{currency.name}}
+        </a>
+      </div>
+    </div>
   </div>
+</div>
+<div *ngIf="errorOccurred">
+  <app-error [errorOccurred]="errorOccurred" [errorMessage]="errorMessage"></app-error>
 </div>

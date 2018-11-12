@@ -22,7 +22,8 @@ export class CountryComponent implements OnInit {
   errorMessage: string;
   loading: boolean;
 
-  constructor(private globeService: GlobeService, private route: ActivatedRoute) { }
+  constructor(private globeService: GlobeService, private route: ActivatedRoute, 
+    private toastr: ToastrService) { }
 
   getBackground() {
     let style = { 
