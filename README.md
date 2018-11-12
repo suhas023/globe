@@ -1,27 +1,54 @@
 # Globe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
+A simple web app to get basic details of all the countries. The web app is made using Angular 6.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Table of Contents
 
-## Code scaffolding
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshot](#screenshot)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+Type the following commands in your terminal:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+git clone <url of this repo>
+cd globe
+npm install
+ng start
+```
+open browser at `localhost:4200` and test the app.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Running end-to-end tests
+### Overview
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+The app uses restcountries API to fetch the data and display the data in form of cards on the screen.
 
-## Further help
+### Home Screen
+- All five continents are shown.
+- User can click on any of them, and all countries in that continent will be shown.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Navbar
+Contains
+- Basic Logo of the app.
+- A search icon.
+- If search icon is clicked an input form would take over for user to search.
+
+### Countries
+- All countries are displayed in form of cards.
+- User can filter the results using filter form. 
+- User can further filter by clicking the curency or language in a country. And all countries with matching would appear.
+
+### Country Page
+- Basic details about a country is shown here.
+Like,
+- Languages, population, Lat and Lng, timezones etc. 
+
+
+
+## Screenshot
+![sample shot](/screenshot/globe.png?raw=true)
