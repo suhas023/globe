@@ -42,7 +42,7 @@
 }
 
 .filter-search input {
-  flex: 0 0 200px;
+  width: 220px;
   line-height: 40px;
 }
 
@@ -134,6 +134,8 @@ input:focus, .back-btn:focus, .back-btn:hover {
     margin: 3px;
   }
   .filter-search input {
-    flex: 0 1 100px;
+    width: 150px;
+    flex: 1;
+    font-size: 17px;
   }
 }
