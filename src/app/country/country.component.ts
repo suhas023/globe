@@ -59,7 +59,6 @@ export class CountryComponent implements OnInit {
       (countries: Country) => {
         this.country = countries;
         this.loading = false;
-        console.log(this.country);
       },
       error =>{
         this.errorOccurred = true;

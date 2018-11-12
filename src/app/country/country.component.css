@@ -62,8 +62,14 @@ input:focus, .back-btn:focus, .back-btn:hover {
 .detail{
   padding: 5px;
   display: flex;
-  padding-left: 30px;
+  width: 270px;
+  margin: 0 auto;
+  align-items: center;
   font-size: 16px;
+}
+
+.with-padding .detail {
+  padding-left: 30px;
 }
 
 .detail .key{
@@ -101,5 +107,11 @@ input:focus, .back-btn:focus, .back-btn:hover {
 @media screen and (max-width: 300px) {
   .card {
     width: 270px;
+  }
+  .detail {
+    width: 100%;
+  }
+  .detail .key{
+    flex: 0 0 80px;
   }
 }
