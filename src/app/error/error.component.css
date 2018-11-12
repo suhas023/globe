@@ -14,3 +14,36 @@
   font-size: 80px;
   color: rgb(70, 68, 68);
 }
+
+@media screen and (max-width: 670px) {
+  .font-face {
+    font-size: 150px;
+  }
+  .message {
+    font-size: 65px;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .error {
+    padding-top: 30px;
+  }
+  .font-face {
+    font-size: 120px;
+  }
+  .message {
+    font-size: 55px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .error {
+    padding-top: 30px;
+  }
+  .font-face {
+    font-size: 80px;
+  }
+  .message {
+    font-size: 40px;
+  }
+}

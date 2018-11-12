@@ -3,6 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  align-content: center;
+  padding-top: 80px;
 }
 
 .card {
@@ -13,7 +15,6 @@
   text-decoration: none;
   background-color: white;
   border: 3px solid #222222;
-  border-radius: 20px;
   -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
@@ -42,4 +43,10 @@
 .card img {
   width: 200px;
   border-radius: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .continents {
+    padding-top: 30px;
+  }
 }

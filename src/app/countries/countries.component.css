@@ -6,53 +6,52 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  align-content: flex-start;
 }
 
 .filter-search {
-  width: 1200px;
-  margin: 0 auto;
   padding: 5px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  align-content: center;
 }
 
-.back-btn, input {
+.back-btn, .filter-search input {
+  max-width: 1200px;
   margin: 10px;
   height: 40px;
   font-size: 20px;
   padding: 3px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 3px solid #222222;
   -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   transition: box-shadow linear 300ms;
-
 }
 
 .back-btn {
-  width: 50px;
+  flex: 0 0 50px;
   cursor: pointer;
   background-image: url("../../assets/nav/back.svg");
   background-repeat: no-repeat;
   background-position: 70% 50%;
 }
 
-input {
-  width: 200px;
+.filter-search input {
+  flex: 0 0 200px;
   line-height: 40px;
 }
 
 .card {
   margin: 10px;
   padding: 5px;
-  max-width: 220px;
+  width: 220px;
   background-color: white;
   border: 3px solid #222222;
-  border-radius: 20px;
   color: #222222;
   -webkit-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
   -moz-box-shadow: 2px 4px 25px -4px rgba(0,0,0,0.72);
@@ -85,7 +84,6 @@ input:focus, .back-btn:focus, .back-btn:hover {
 
 .card img {
   width: 200px;
-  border-radius: 15px;
   border: 1px solid #222222;
   display: block;
   margin: 0 auto;
@@ -104,4 +102,38 @@ input:focus, .back-btn:focus, .back-btn:hover {
 .detail .value .link {
   color: rgb(3, 80, 143);
   text-decoration: none;
-} 
+}
+
+@media screen and (max-width: 1200px) {
+  .countries {
+    width: 960px;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .countries {
+    width: 720px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .countries {
+    width: 480px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .countries {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .back-btn, .filter-search input {
+    margin: 3px;
+  }
+  .filter-search input {
+    flex: 0 1 100px;
+  }
+}

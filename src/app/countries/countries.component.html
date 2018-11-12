@@ -1,4 +1,7 @@
 <div class="container">
+  <div *ngIf="loading && !errorOccurred">
+    <app-error [errorOccurred]="errorOccurred" [errorMessage]="'Loading...'"></app-error>
+  </div>
   <ng-container *ngIf="!loading && !errorOccurred">
     <div class="filter-search">
       <button class="back-btn" (click)="location.back()"></button>
