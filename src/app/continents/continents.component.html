@@ -2,7 +2,7 @@
   <a class="card" *ngFor="let continent of continents" 
     routerLink="/countries" [queryParams]="{category: 'region', value: continent}"
   >
-      <img src="../../assets/continents/{{continent}}.svg" alt="{{continent}} image">
+      <img src="/assets/continents/{{continent}}.svg" alt="{{continent}} image">
       <h2>{{continent | uppercase}}</h2>
   </a>
 </div>
