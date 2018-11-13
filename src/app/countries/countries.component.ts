@@ -54,7 +54,7 @@ export class ContriesComponent implements OnInit, OnDestroy {
         this.errorMessage = null;
         return this.globeService.getCountries(s).pipe(
           catchError((res: HttpErrorResponse) => {
-              this.errorMessage = res.statusText;
+              this.errorMessage = 'Not Found!';
               this.errorOccurred = true;
               return of([]); 
             }
