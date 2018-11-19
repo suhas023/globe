@@ -2,6 +2,8 @@
 
 A simple web app to get basic details of all the countries. The web app is made using Angular 6.
 
+Live Link: https://suhas023.github.io/globe/
+
 
 ## Table of Contents
 
